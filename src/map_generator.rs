@@ -48,7 +48,7 @@ pub fn render_map(
     width: usize,
     height: usize,
 ) -> Vec<Vec<char>> {
-    let mut array: Vec<Vec<char>> = vec![vec![' '; width]; height];
+    let mut array: Vec<Vec<char>> = vec![vec![' '; height]; width];
 
     for x in 0..width {
         for y in 0..height {
@@ -146,18 +146,18 @@ pub fn render_map(
 }
 
 fn check_empty(map: &HashMap<(usize, usize), ObstacleType>, point: (usize, usize)) -> bool {
-    if map.contains_key(&point) {
-        match map.get(&point) {
-            Some(ObstacleType::None) => {
-                return true;
-            }
-            _ => {
-                return false;
-            }
-        }
+    if !map.contains_key(&point) {
+        return false;
     }
 
-    return false;
+    match map.get(&point) {
+        Some(ObstacleType::None) => {
+            return true;
+        }
+        _ => {
+            return false;
+        }
+    }
 }
 
 pub enum ObstacleType {

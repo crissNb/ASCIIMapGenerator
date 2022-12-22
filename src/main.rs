@@ -56,7 +56,7 @@ fn main() {
         );
 
         // Print to console
-        for i in 0..map_count {
+        for _i in 0..map_count {
             for row in &result {
                 for element in row {
                     print!("{}", element);
@@ -75,7 +75,7 @@ fn main() {
             .unwrap();
         let mut buffile = BufWriter::new(file);
 
-        for i in 0..map_count {
+        for _i in 0..map_count {
             let result: Vec<Vec<char>> = map_generator::render_map(
                 &map_generator::generate(map_width, map_height, 0.8, 98),
                 map_width,
