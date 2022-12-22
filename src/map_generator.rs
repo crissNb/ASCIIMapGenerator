@@ -78,31 +78,26 @@ pub fn render_map(
 
                     // TODO: optimize logic
                     if right_empty && up_empty {
-                        array[x][y - 1] = '/';
+                        array[x][y] = '/';
                     } else if left_empty && up_empty {
-                        array[x][y + 1] = '\\';
+                        array[x][y] = '\\';
                     } else if right_empty && down_empty {
-                        array[x][y - 1] = '\\';
+                        array[x][y] = '\\';
                     } else if left_empty && down_empty {
-                        array[x][y + 1] = '/';
-                    }
-
-                    if left_empty {
+                        array[x][y] = '/';
+                    } else if left_empty {
                         if array[x][y + 1] == ' ' {
                             array[x][y + 1] = '|';
                         }
-                    }
-                    if right_empty {
+                    } else if right_empty {
                         if array[x][y - 1] == ' ' {
                             array[x][y - 1] = '|';
                         }
-                    }
-                    if up_empty {
+                    } else if up_empty {
                         if array[x - 1][y] == ' ' {
                             array[x - 1][y] = '_';
                         }
-                    }
-                    if down_empty {
+                    } else if down_empty {
                         if array[x][y] == ' ' {
                             array[x][y] = '_';
                         }
