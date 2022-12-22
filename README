@@ -1,8 +1,21 @@
 -----------------
 DESCRIPTION
 -----------------
-This is a program that generates a space map of a given size and render only using ASCII.
+This is a program that generates a space map of a given size and render only 
+using ASCII.
+Terrain is generated using perlin noise with relatively low octaves.
 
 -----------------
 USAGE
 -----------------
+Run the program. This will generate a random map of 30x30.
+
+As of right now, there are no command line arguments to configure the map
+generation (see LIMITATIONS).
+
+-----------------
+LIMITATIONS
+-----------------
+It is not possible to adjust the map size as of right now. This feature along 
+with other (e.g. starting subprocesses to bulk test program, generating 
+multiple maps at once and save it to a file) will be implemented soon.
