@@ -8,14 +8,9 @@ Terrain is generated using perlin noise with relatively low octaves.
 -----------------
 USAGE
 -----------------
-Run the program. This will generate a random map of 30x30.
-
-As of right now, there are no command line arguments to configure the map
-generation (see LIMITATIONS).
+Run the program.
 
 -----------------
-LIMITATIONS
+TODO
 -----------------
-It is not possible to adjust the map size as of right now. This feature along 
-with other (e.g. starting subprocesses to bulk test program, generating 
-multiple maps at once and save it to a file) will be implemented soon.
+Starting subprocesses to bulk test program will be implemented soon.

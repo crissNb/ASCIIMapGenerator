@@ -107,10 +107,6 @@ pub fn render_map(
                             array[x][y] = '_';
                         }
                     }
-
-                    // if array[x][y] == String::from(" ") {
-                    //     array[x][y] = String::from("@");
-                    // }
                 }
                 Some(ObstacleType::SmallRock) => array[x][y] = '*',
                 Some(ObstacleType::None) => (),
