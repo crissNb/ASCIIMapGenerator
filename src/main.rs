@@ -49,14 +49,14 @@ fn main() {
     println!("Generating...");
 
     if output_loc.trim().is_empty() {
-        let result: Vec<Vec<char>> = map_generator::render_map(
-            &map_generator::generate(map_width, map_height, 0.8, 98),
-            map_width,
-            map_height,
-        );
-
-        // Print to console
         for _i in 0..map_count {
+            let result: Vec<Vec<char>> = map_generator::render_map(
+                &map_generator::generate(map_width, map_height, 0.8, 98),
+                map_width,
+                map_height,
+            );
+
+            // Print to console
             for row in &result {
                 for element in row {
                     print!("{}", element);
@@ -82,7 +82,7 @@ fn main() {
                 map_height,
             );
 
-            // Print to console
+            // Print to file
             for row in &result {
                 for element in row {
                     if let Err(e) = write!(buffile, "{}", element) {
