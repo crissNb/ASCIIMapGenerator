@@ -13,7 +13,7 @@ fn main() {
         "Desired map width and height (leave empty (or invalid input) for random between 0 - 100):"
     );
 
-    println!("Width:");
+    println!("Height:");
     let map_width: usize = match get_input().trim().parse::<usize>() {
         Ok(n) => n,
         Err(_) => {
@@ -22,7 +22,7 @@ fn main() {
         }
     };
 
-    println!("Height:");
+    println!("Width:");
     let map_height: usize = match get_input().trim().parse::<usize>() {
         Ok(n) => n,
         Err(_) => {
