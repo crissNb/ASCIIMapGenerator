@@ -13,7 +13,10 @@ pub fn generate(
     let mut rng = rand::thread_rng();
 
     // Init fbm
-    let fbm = Fbm::<Perlin>::new(rng.gen()).set_octaves(2).set_persistence(0.3).set_frequency(1.5);
+    let fbm = Fbm::<Perlin>::new(rng.gen())
+        .set_octaves(2)
+        .set_persistence(0.3)
+        .set_frequency(1.5);
 
     let mut map: HashMap<(usize, usize), ObstacleType> = HashMap::new();
 
