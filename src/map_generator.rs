@@ -103,9 +103,9 @@ pub fn render_map(
                         }
                     }
 
-                    if array[x][y] == ' ' {
-                        array[x][y] = '@';
-                    }
+                    // if array[x][y] == ' ' {
+                    //     array[x][y] = '@';
+                    // }
                 }
                 Some(ObstacleType::SmallRock) => array[x][y] = '*',
                 Some(ObstacleType::None) => (),
