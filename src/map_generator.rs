@@ -13,7 +13,7 @@ pub fn generate(
     let mut rng = rand::thread_rng();
 
     // Init fbm
-    let fbm = Fbm::<Perlin>::new(rng.gen()).set_octaves(2).set_persistence(0.6).set_frequency(1.5);
+    let fbm = Fbm::<Perlin>::new(rng.gen()).set_octaves(2).set_persistence(0.3).set_frequency(1.5);
 
     let mut map: HashMap<(usize, usize), ObstacleType> = HashMap::new();
 
@@ -86,12 +86,12 @@ pub fn render_map(
                     } else if left_empty && down_empty {
                         array[x][y] = '/';
                     } else if left_empty {
-                        if array[x][y + 1] == ' ' {
-                            array[x][y + 1] = '|';
+                        if array[x][y] == ' ' {
+                            array[x][y] = '|';
                         }
                     } else if right_empty {
-                        if array[x][y - 1] == ' ' {
-                            array[x][y - 1] = '|';
+                        if array[x][y] == ' ' {
+                            array[x][y] = '|';
                         }
                     } else if up_empty {
                         if array[x - 1][y] == ' ' {
@@ -101,6 +101,10 @@ pub fn render_map(
                         if array[x][y] == ' ' {
                             array[x][y] = '_';
                         }
+                    }
+
+                    if array[x][y] == ' ' {
+                        array[x][y] = '@';
                     }
                 }
                 Some(ObstacleType::SmallRock) => array[x][y] = '*',
