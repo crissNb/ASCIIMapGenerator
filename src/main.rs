@@ -1,5 +1,4 @@
 use std::io::prelude::*;
-use std::process::{self, Command, Stdio};
 use std::{fs::OpenOptions, io::BufWriter};
 
 use rand::Rng;
@@ -102,34 +101,34 @@ fn main() {
     }
 }
 
-fn test_subprocess() -> String {
-    let mut process = Command::new("java")
-        .arg("TestJavaClass")
-        .stdin(Stdio::piped())
-        .spawn()
-        .expect("Failed to start Java subprocess");
-
-    let stdin = process.stdin.as_mut().expect("Failed to get stdin handle");
-
-    stdin
-        .write_all(b"test\ntest\n")
-        .expect("Failed to write to stdin");
-
-    stdin.flush().expect("Failed to flush stdin");
-
-    let stdout = process
-        .stdout
-        .as_mut()
-        .expect("Failed to get stdout handle");
-
-    let mut buffer = Vec::new();
-    stdout
-        .read_to_end(&mut buffer)
-        .expect("Failed to read stdout");
-
-    let output = String::from_utf8(buffer).expect("Failed to convert output to string");
-    return output;
-}
+// fn test_subprocess() -> String {
+//     let mut process = Command::new("java")
+//         .arg("TestJavaClass")
+//         .stdin(Stdio::piped())
+//         .spawn()
+//         .expect("Failed to start Java subprocess");
+//
+//     let stdin = process.stdin.as_mut().expect("Failed to get stdin handle");
+//
+//     stdin
+//         .write_all(b"test\ntest\n")
+//         .expect("Failed to write to stdin");
+//
+//     stdin.flush().expect("Failed to flush stdin");
+//
+//     let stdout = process
+//         .stdout
+//         .as_mut()
+//         .expect("Failed to get stdout handle");
+//
+//     let mut buffer = Vec::new();
+//     stdout
+//         .read_to_end(&mut buffer)
+//         .expect("Failed to read stdout");
+//
+//     let output = String::from_utf8(buffer).expect("Failed to convert output to string");
+//     return output;
+// }
 
 fn get_input() -> String {
     let mut buffer = String::new();
