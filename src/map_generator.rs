@@ -138,7 +138,7 @@ pub fn render_map(
 
         if let Some(ObstacleType::None) = map.get(&(random_x, random_y)) {
             if array[random_x][random_y] == ' ' {
-                array[random_x][random_y] = 'X';
+                array[random_x][random_y] = 'x';
                 goal_spawned = true;
             }
         }
